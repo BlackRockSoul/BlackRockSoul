@@ -3,11 +3,9 @@
 
 	$iterator = new DirectoryIterator('inc');
 	$mtime = -1;
-	$file;
 	foreach ($iterator as $fileinfo) {
 		if ($fileinfo->isFile()) {
 			if ($fileinfo->getMTime() > $mtime) {
-				$file = $fileinfo->getFilename();
 				$mtime = $fileinfo->getMTime();
 				$dir_time = gmdate("D, d M Y H:i:s \G\M\T", $mtime);
 			}
