@@ -1,5 +1,19 @@
 <head id="head">
 	<?php
+
+	$iterator = new DirectoryIterator('inc');
+	$mtime = -1;
+	$file;
+	foreach ($iterator as $fileinfo) {
+		if ($fileinfo->isFile()) {
+			if ($fileinfo->getMTime() > $mtime) {
+				$file = $fileinfo->getFilename();
+				$mtime = $fileinfo->getMTime();
+				$dir_time = gmdate("D, d M Y H:i:s \G\M\T", $mtime);
+			}
+		}
+	}
+
 	$LastModified_unix = strtotime(date("D, d M Y H:i:s", filectime($_SERVER['SCRIPT_FILENAME'])));
 	$LastModified = gmdate("D, d M Y H:i:s \G\M\T", $LastModified_unix);
 	$IfModifiedSince = false;
@@ -10,6 +24,10 @@
 	if ($IfModifiedSince && $IfModifiedSince >= $LastModified_unix) {
 		header($_SERVER['SERVER_PROTOCOL'] . ' 304 Not Modified');
 		exit;}
+
+	if($dir_time > $LastModified) {
+		$LastModified=$dir_time;
+	}
 
 	header('Last-Modified: '. $LastModified);
 	header("Expires: " . gmdate("D, d M Y H:i:s", time() + 60*60*24) . " GMT");
@@ -28,7 +46,7 @@
 	<link href="images/favicon.ico" rel="icon" type="image/x-icon" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script src="/js/main.min.js" async></script>
-<!--			<script src="/js/main.js" async></script>-->
+	<!--			<script src="/js/main.js" async></script>-->
 	<meta charset="utf-8">	
 				
 </head>
