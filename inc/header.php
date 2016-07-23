@@ -1,6 +1,15 @@
 <head id="head">
 	<?php
 
+	function debug( $data ) {
+
+		if ( is_array( $data ) )
+			$output = "<script>console.log( 'Debug: " . implode( ',', $data) . "' );</script>";
+		else
+			$output = "<script>console.log( 'Debug: " . $data . "' );</script>";
+		echo $output;
+	}
+
 	$iterator = new DirectoryIterator('inc');
 	$mtime = -1;
 	foreach ($iterator as $fileinfo) {
@@ -44,7 +53,7 @@
 	<link href="images/favicon.ico" rel="icon" type="image/x-icon" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script src="/js/main.min.js" async></script>
-	<!--			<script src="/js/main.js" async></script>-->
+	<!--		<script src="/js/main.js" async></script>-->
 	<meta charset="utf-8">	
 				
 </head>
