@@ -30,9 +30,6 @@
 			Погоди немного!
 		</div>
 	</sub_2>
-	<idkwhy>
-	  <br>
-	</idkwhy>
 </body>
 
 <?php include ("inc/footer.php"); ?>

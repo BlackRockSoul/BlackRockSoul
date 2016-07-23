@@ -203,13 +203,14 @@
 	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 
-/* Google Fonts */ 
+
+/* Google Fonts */
 
 menu {
 	width: 100%;
 	margin: 0 auto;
 	padding: 0;
-	z-index: 1000;
+	z-index: 10000;
 	position: fixed;
 	background: linear-gradient(to top, transparent 0, rgba(0, 0, 0, 0.7) 100%) repeat-x;
 }
@@ -224,7 +225,7 @@ body {
 	overflow: auto;
 	width: 100%;
 	height: 100%;
-	min-height: 345px;
+	min-height: 275vh;
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -399,25 +400,21 @@ sub_1 {
 	top: 100vh;
 	height: 90vh;
 	background-color: #0c0c0c;
-	box-shadow: 0 -11px 63px 20px rgba(0, 0, 0, .80);
-	z-index: 10;
+	box-shadow: 0 -10px 50px 20px rgb(12, 12, 12);
+	z-index: 100;
 }
+
 sub_2 {
 	position: absolute;
 	width: 100%;
 	top: 190vh;
 	height: 80vh;
 	background-color: dimgrey;
-	box-shadow: 0 -11px 63px 20px rgba(0, 0, 0, .80);
-	z-index: 20;
+	box-shadow: 0 -11px 55px 25px rgb(105, 105, 105);
+	z-index: 200;
 }
-idkwhy {
-	position: absolute;
-	width: 100%;
-	top: 250vh;
-	height: 30vh;
-}
-.fixed{
+
+.fixed {
 	position: fixed;
 }
 
