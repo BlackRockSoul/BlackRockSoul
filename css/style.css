@@ -225,7 +225,7 @@ body {
 	overflow: auto;
 	width: 100%;
 	height: 100%;
-	min-height: 275vh;
+	min-height: 427vh;
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -395,23 +395,47 @@ main {
 }
 
 sub_1 {
-	position: absolute;
-	width: 100%;
 	top: 100vh;
-	height: 90vh;
-	background-color: #0c0c0c;
-	box-shadow: 0 -10px 50px 20px rgb(12, 12, 12);
+	height: 85vh;
 	z-index: 100;
 }
 
 sub_2 {
+	top: 185vh;
+	height: 75vh;
+	z-index: 200;
+}
+
+sub_3 {
+	top: 260vh;
+	height: 65vh;
+	z-index: 300;
+}
+
+sub_4 {
+	top: 325vh;
+	height: 55vh;
+	z-index: 400;
+}
+
+sub_5 {
+	top: 380vh;
+	height: 45vh;
+	z-index: 500;
+}
+
+.blck1 {
 	position: absolute;
 	width: 100%;
-	top: 190vh;
-	height: 80vh;
+	background-color: #0c0c0c;
+	box-shadow: 0 -10px 50px 50px rgb(12, 12, 12);
+}
+
+.blck2 {
+	position: absolute;
+	width: 100%;
 	background-color: dimgrey;
-	box-shadow: 0 -11px 55px 25px rgb(105, 105, 105);
-	z-index: 200;
+	box-shadow: 0 -10px 30px 20px rgb(105, 105, 105);
 }
 
 .fixed {
@@ -516,7 +540,8 @@ sub_2 {
 	content: "☺";
 }
 
-.sub_block {
+.sub_set {
+	opacity: 0;
 	z-index: 2;
 	width: 100%;
 	height: 80vh;
@@ -527,6 +552,26 @@ sub_2 {
 	padding-top: 10vh;
 	font-family: Open Sans;
 	color: white;
+}
+
+.sub_text1 {
+	left: 100vw;
+}
+
+.sub_text2 {
+	left: -100vw;
+}
+
+.sub_text3 {
+	left: 100vw;
+}
+
+.sub_text4 {
+	left: -100vw;
+}
+
+.sub_text5 {
+	left: 100vw;
 }
 
 @media (max-width: 615px) {
