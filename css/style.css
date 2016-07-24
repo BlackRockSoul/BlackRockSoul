@@ -212,6 +212,7 @@ menu {
 	padding: 0;
 	z-index: 10000;
 	position: fixed;
+	background: -webkit-linear-gradient(bottom, transparent 0, rgba(0, 0, 0, 0.7) 100%) repeat-x;
 	background: linear-gradient(to top, transparent 0, rgba(0, 0, 0, 0.7) 100%) repeat-x;
 }
 
@@ -242,7 +243,6 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-	-webkit-border-radius: 20px;
 	border-radius: 20px;
 	background: rgba(255, 255, 255, 0.66);
 	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
@@ -273,6 +273,7 @@ body {
 
 #utilitybar a:hover {
 	color: rgb(177, 177, 280);
+	-webkit-transition: color 0.5s;
 	transition: color 0.5s;
 }
 
@@ -284,6 +285,7 @@ body {
 	font-size: 23px;
 	font-family: Gruppo;
 	font-weight: 500;
+	-webkit-transition: color 0.5s;
 	transition: color 0.5s;
 	color: rgba(255, 255, 255, 0.66);
 	text-decoration: none;
@@ -295,6 +297,7 @@ body {
 	margin-right: 30px;
 	white-space: nowrap;
 	font-size: 16px;
+	-webkit-transition: color 0.3s;
 	transition: color 0.3s;
 	color: rgba(255, 255, 255, 0.66);
 }
@@ -310,6 +313,7 @@ body {
 	font-size: 16px;
 	margin-left: 15px;
 	white-space: nowrap;
+	-webkit-transition: color 0.3s;
 	transition: color 0.3s;
 	color: rgba(255, 255, 255, 0.66);
 }
@@ -319,6 +323,7 @@ body {
 	float: left;
 	margin-right: 7px;
 	white-space: nowrap;
+	-webkit-transition: color 0.3s;
 	transition: color 0.3s;
 	color: rgba(255, 255, 255, 0.66);
 }
@@ -327,6 +332,7 @@ body {
 	display: inline-block;
 	float: right;
 	white-space: nowrap;
+	-webkit-transition: color 0.3s;
 	transition: color 0.3s;
 	color: rgba(255, 255, 255, 0.66);
 	text-decoration: none;
@@ -362,6 +368,7 @@ nav ul li {
 	display: inline-block;
 	margin-left: 15px;
 	margin-right: 15px;
+	-webkit-transition: 0.3s linear;
 	transition: 0.3s linear;
 }
 
@@ -383,6 +390,7 @@ nav ul li a:after {
 	left: 0;
 	top: 40px;
 	background: white;
+	-webkit-transition: all 0.5s linear;
 	transition: all 0.5s linear;
 }
 
@@ -425,6 +433,7 @@ sub_5 {
 }
 
 .blck1 {
+	overflow: hidden;
 	position: absolute;
 	width: 100%;
 	background-color: #0c0c0c;
@@ -432,6 +441,7 @@ sub_5 {
 }
 
 .blck2 {
+	overflow: hidden;
 	position: absolute;
 	width: 100%;
 	background-color: dimgrey;
@@ -487,6 +497,7 @@ sub_5 {
 	top: 40vh;
 	left: 50%;
 	margin-right: -50%;
+	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 }
 
@@ -508,6 +519,7 @@ sub_5 {
 	padding-right: 19px;
 	left: 50%;
 	margin-right: -50%;
+	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 }
 
@@ -526,6 +538,7 @@ sub_5 {
 	border-radius: 10px;
 	left: 50%;
 	margin-right: -50%;
+	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 }
 
@@ -555,35 +568,37 @@ sub_5 {
 }
 
 .sub_text1 {
-	left: 100vw;
+	left: 30vw;
 }
 
 .sub_text2 {
-	left: -100vw;
+	left: -30vw;
 }
 
 .sub_text3 {
-	left: 100vw;
+	top: 30vh;
 }
 
 .sub_text4 {
-	left: -100vw;
+
 }
 
 .sub_text5 {
-	left: 100vw;
+	top: 30vh;
 }
 
 @media (max-width: 615px) {
 	.header_btn {
 		position: fixed;
 		left: 50%;
+		-webkit-transform: translate(-50%);
 		transform: translate(-50%);
 	}
 	#main_sub {
 		margin-right: auto;
 		position: fixed;
 		left: 50%;
+		-webkit-transform: translate(-50%);
 		transform: translate(-50%);
 		width: 100%;
 	}

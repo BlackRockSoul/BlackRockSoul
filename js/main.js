@@ -42,7 +42,7 @@ var scroller = function (i, item, hgth_px, hght_vh_min) {
 	if ((top_vh[i] !== hght_vh_min[i]) && ($(window).scrollTop() > 30)) {
 		$('html, body').animate({
 			scrollTop: $(item).offset().top
-		}, 1000);
+		}, 1500);
 	}
 
 
@@ -83,11 +83,12 @@ $(function () {
 		$(window).scroll(function () { //при прокрутке страницы
 
 
-			if (($(window).scrollTop() >= fixblock_pos[i] - mon_hght * 0.5) && (shoved[i] === false)) {
+			if (($(window).scrollTop() >= fixblock_pos[i] - mon_hght * 0.3) && (shoved[i] === false)) {
 				$(item).children().animate({
 					opacity: 1,
-					left: 0
-				}, 1000);
+					left: 0,
+					top: 0
+				}, 1500);
 				shoved[i] = true;
 			}
 
