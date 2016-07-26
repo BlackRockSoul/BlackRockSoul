@@ -1,4 +1,4 @@
-<menu>
+<menu id="menu">
 	<div id="main_header">
 		<div id="utilitybar">
 			<a href="/" class ="header_btn">BlackRockSoul</a>
@@ -16,9 +16,11 @@
 	<div id="main_menu">
 		<nav>
 			<ul id="main_sub">
-				<li><a href="/">главная</a></li>
-				<li><a href="/projects.php">проекты</a></li>
-				<li><a href="/about.php">обо мне</a></li>
+				<li><a href="#" onclick="moveTo_block(-1)">главная</a></li>
+				<li><a href="#" onclick="moveTo_block(0)">обо мне</a></li>
+				<li><a href="#" onclick="moveTo_block(1)">проекты</a></li>
+				<li><a href="#" onclick="moveTo_block(2)">команда</a></li>
+				<li><a href="#" onclick="moveTo_block(3)">обратная связь</a></li>
 			</ul>
 		</nav>
 	</div>

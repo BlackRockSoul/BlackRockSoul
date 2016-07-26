@@ -10,26 +10,36 @@ setInterval(function () {
 	}, 1e3).delay(7e3);
 }, 5e3);
 
-
-$(function () {
+$(document).ready(function () {
 	"use strict";
-	$('#main_sub > li > a').each(function () {
-		if ($(this).attr('href') === window.location.pathname) {
-			$(this).addClass('main_menu_active');
-		}
-	});
+	scrollTo(0, 0);
+	$('#main_sub > li > a')[0].className = 'main_menu_active';
+	$("body").smoothWheel();
+	$('.sub_text2').slick();
 });
 
-var fixed_block = function (i, hgth_px, hght_vh_min, item, style_fixed, style_unlock) {
+var pos = [],
+	ost_blck = [];
+
+var fixed_block = function (i, hgth_px, hght_vh_min, item, style_fixed, style_unlock, fixed) {
 	"use strict";
 	var fixblock_pos = [];
 
-	fixblock_pos[i] = hgth_px[i] - window.innerHeight / 100 * hght_vh_min[i]; //из пиксельной высоты элемента вычитаем высоту экрана умноженную на остаток высоты блока до верха, к примеру блок высотой 90% высоты экрана, от него остается 10%. как раз они и вычитаются. забыл уже для чего, по другому не работает
-	if (($(window).scrollTop() >= fixblock_pos[i]) && ($(item).css('position') !== 'fixed')) { //если пользователь прокрутил до этой позиции..
-		$(item).css(style_fixed);
-	}
-	if (($(window).scrollTop() < fixblock_pos[i]) && ($(item).css('position') === 'fixed')) { //если пользователь прокрутил до этой позиции..
-		$(item).css(style_unlock); //очищаем лишние стили
+	if (fixed[i] === 'unlocked') {
+		fixblock_pos[i] = hgth_px[i] - window.innerHeight / 100 * hght_vh_min[i]; //из пиксельной высоты элемента вычитаем высоту экрана умноженную на остаток высоты блока до верха, к примеру блок высотой 90% высоты экрана, от него остается 10%. как раз они и вычитаются. забыл уже для чего, по другому не работает
+		if ($(window).scrollTop() >= fixblock_pos[i]) { //если пользователь прокрутил до этой позиции..
+			$(item).css(style_fixed);
+			fixed[i] = 'locked';
+		}
+	} else {
+
+		if (fixed[i] === 'locked') {
+			fixblock_pos[i] = hgth_px[i] - window.innerHeight / 100 * hght_vh_min[i];
+			if (($(window).scrollTop() < fixblock_pos[i]) && ($(item).css('position') === 'fixed')) { //если пользователь прокрутил до этой позиции..
+				$(item).css(style_unlock); //очищаем лишние стили
+				fixed[i] = 'unlocked';
+			}
+		}
 	}
 };
 
@@ -57,15 +67,23 @@ $(function () {
 		hght_vh = [], //высота в процентах. просто числом, на которое нужно что-то умножить
 		hgth_px = [], //высота, только в пикселях
 		hght_vh_min = [], //оставшаяся от блока высота в процентах
-		shoved = []; //
+		shoved = [],
+		fixed = [];
 
 	arr.forEach(function (item, i, arr) { //для всех полученных элементов единожды запускаем, которая...
 		hgth_px[i] = $(arr[i]).position().top; //берет позицию элемента  по высоте в пикселях и...
 		top_vh[i] = Math.round($(item).position().top / window.innerHeight * 100); //получаем само положение элемента по высоте, но уже в vh (процентах)
 		hght_vh[i] = Math.round($(item).height() / window.innerHeight * 100); //так же и с высотой элемента
 		hght_vh_min[i] = 100 - hght_vh[i]; //из 100% высоты экрана вычитаем место, которое способен занять элемент и получаем остаток от блока. нужен для фиксирования позиции элемента
-		shoved[i] = false;
+		//[i] = false;
 		fixblock_pos[i] = hgth_px[i] - window.innerHeight / 100 * hght_vh_min[i];
+		window.ost_blck[i] = fixblock_pos[i];
+
+		fixed[i] = 'unlocked';
+
+		shoved[i] = false;
+
+
 		var style_fixed = { //определяем стиль блокировки элемента
 				position: "fixed",
 				top: hght_vh_min[i] + 'vh'
@@ -73,27 +91,73 @@ $(function () {
 			style_unlock = { //тоже самое для удаления стилей с элемента
 				position: "",
 				top: ""
-			};
+			},
+			waypoint_text = new Waypoint({
+				element: document.getElementById($(item).attr("id")),
+				handler: function (direction) {
+					$(item).children().animate({
+						opacity: 1,
+						left: '50%',
+						top: '50%'
+					}, 1500);
+				},
+				offset: '75%'
+			});
+
 
 		$(window).resize(function () { //и при изменении размера окна (ебучий ведроид)
 			hgth_px[i] = window.innerHeight / 100 * top_vh[i]; //пишем отдельную переменную под высоту элемента. пока ебался с остальным забыл зачем нужна, но без неё не работает.		в общем, не трогать
-			fixed_block(i, hgth_px, hght_vh_min, item, style_fixed, style_unlock); //вызов функции при изменении размера окна. нужно для того чтобы всё к хуям не сломалось при ресайзе
 			fixblock_pos[i] = hgth_px[i] - window.innerHeight / 100 * hght_vh_min[i];
+			window.ost_blck[i] = fixblock_pos[i];
+			fixed_block(i, hgth_px, hght_vh_min, item, style_fixed, style_unlock, fixed); //вызов функции при изменении размера окна. нужно для того чтобы всё к хуям не сломалось при ресайзе
 		});
-		$(window).scroll(function () { //при прокрутке страницы
+	});
 
+	$(window).scroll(function () { //при прокрутке страницы
+		arr.forEach(function (item, i, arr) {
 
-			if (($(window).scrollTop() >= fixblock_pos[i] - mon_hght * 0.3) && (shoved[i] === false)) {
-				$(item).children().animate({
-					opacity: 1,
-					left: 0,
-					top: 0
-				}, 1500);
-				shoved[i] = true;
+			if ($(window).scrollTop() >= window.ost_blck[i] - 30) {
+				if (i !== 4) {
+					$('#main_sub > li > a').each(function () {
+						$(this).removeClass();
+					});
+					try {
+						$('#main_sub > li > a')[i + 1].className = 'main_menu_active';
+					} catch (errrr) {}
+				}
+			} else {
+				if ($(window).scrollTop() < window.ost_blck[0] - 30) {
+					$('#main_sub > li > a').each(function () {
+						$(this).removeClass();
+					});
+					$('#main_sub > li > a')[0].className = 'main_menu_active';
+				}
 			}
 
+			var style_fixed = { //определяем стиль блокировки элемента
+					position: "fixed",
+					top: hght_vh_min[i] + 'vh'
+				},
+				style_unlock = { //тоже самое для удаления стилей с элемента
+					position: "",
+					top: ""
+				};
 
-			fixed_block(i, hgth_px, hght_vh_min, item, style_fixed, style_unlock); //основной вызов функции, но уже при прокрутке.
+			fixed_block(i, hgth_px, hght_vh_min, item, style_fixed, style_unlock, fixed); //основной вызов функции, но уже при прокрутке.
 		});
 	});
 });
+
+var moveTo_block = function (block_num) {
+	"use strict";
+	if (block_num !== -1) {
+		$('html, body').animate({
+			scrollTop: window.ost_blck[block_num]
+		}, 1000);
+	} else {
+		$('html, body').animate({
+			scrollTop: 0
+		}, 1000);
+	}
+
+};
