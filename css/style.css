@@ -551,9 +551,8 @@ nav ul li a:hover:after {
 .main_text_sub {
 	z-index: 6;
 	border-width: 0px;
-	margin: 0px;
 	padding: 0px;
-	margin-top: 30px;
+	margin: 7vh -50% 0 0;
 	letter-spacing: 2px;
 	font-size: 25px;
 	color: white;
@@ -562,9 +561,7 @@ nav ul li a:hover:after {
 	font-weight: 400;
 	font-family: Libre Baskerville;
 	font-style: italic;
-	padding-right: 19px;
 	left: 50%;
-	margin-right: -50%;
 	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 }
@@ -572,9 +569,8 @@ nav ul li a:hover:after {
 .main_button {
 	z-index: 7;
 	border-width: 0px;
-	margin: 0px;
 	padding: 10px;
-	margin-top: 60px;
+	margin: 60px -50% 0 0;
 	font-size: 30px;
 	position: absolute;
 	font-weight: 700;
@@ -583,7 +579,6 @@ nav ul li a:hover:after {
 	background: rgba(26, 169, 244, 0.75);
 	border-radius: 10px;
 	left: 50%;
-	margin-right: -50%;
 	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 }
@@ -689,6 +684,19 @@ nav ul li a:hover:after {
 	        transform: translateZ(0);
 }
 
+h1 {
+	font-size: 4vh;
+	-webkit-transition: font-size 2s;
+	transition: font-size 2s;
+}
+
+h2 {
+	font-size: 3vh;
+	font-weight: normal;
+	-webkit-transition: font-size 2s;
+	transition: font-size 2s;
+}
+
 @media (max-width: 745px) {
 	.header_btn {
 		position: fixed;
@@ -711,8 +719,12 @@ nav ul li a:hover:after {
 		font-size: 18px;
 		width: 95%;
 	}
-	.sub_text1 {}
-	.sub_text1 {}
+	h1 {
+		font-size: 3.5vh;
+	}
+	h2 {
+		font-size: 2.5vh;
+	}
 	.main_text {
 		font-size: 35px;
 	}
