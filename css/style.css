@@ -514,6 +514,10 @@ h2 {
 	transition: font-size 2s;
 }
 
+.slick-list {
+	height: 100%;
+}
+
 .fa-mobile:before {
 	content: "\f10b";
 	font: normal normal normal 14px/1 FontAwesome;

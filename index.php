@@ -1,4 +1,4 @@
-<!DOCTYPE html system>
+<!DOCTYPE html>
 <html lang="ru">
 
 <?php include ("inc/header.php"); ?>

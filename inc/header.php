@@ -49,10 +49,15 @@
 		<meta name="Description" content="Сайт одного быдлокодера с ником BlackRockSoul">
 		<meta name="Keywords" content="сайт, визитка, github, BlackRockSoul, кодер, программирование">
 		<meta name="application-name" content="BlackRockSoul" />
-		<meta name="msapplication-square70x70logo" content="/images/win_titles/small.jpg" />
-		<meta name="msapplication-square150x150logo" content="/images/win_titles/medium.jpg" />
-		<meta name="msapplication-wide310x150logo" content="/images/win_titles/wide.jpg" />
-		<meta name="msapplication-square310x310logo" content="/images/win_titles/large.jpg" />
+		<meta property="og:title" content="BlackRockSoul" />
+		<meta property="og:description" content="Сайт одного быдлокодера с ником BlackRockSoul" />
+		<meta property="og:image" content="http://blackrocksoul.tk/images/preview.png" />
+		<meta property="og:site_name" content="Сайт разработчика BlackRockSoul" />
+		<meta property="og:url" content="http://blackrocksoul.tk" />
+		<meta name="msapplication-square70x70logo" content="http://blackrocksoul.tk/images/win_titles/small.jpg" />
+		<meta name="msapplication-square150x150logo" content="http://blackrocksoul.tk/images/win_titles/medium.jpg" />
+		<meta name="msapplication-wide310x150logo" content="http://blackrocksoul.tk/images/win_titles/wide.jpg" />
+		<meta name="msapplication-square310x310logo" content="http://blackrocksoul.tk/images/win_titles/large.jpg" />
 		<meta name="msapplication-TileColor" content="#000000" />
 
 		<link href="https://fonts.googleapis.com/css?family=Gruppo|Libre+Baskerville|Open+Sans|Roboto" rel="stylesheet">
@@ -63,7 +68,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" type="text/javascript"></script>
 
 		<script src="/js/noframework.waypoints.min.js" type="text/javascript"></script>
-		<script src="/js/jquery.smoothwheel.min.js" type="text/javascript"></script>
+		<script src="/js/jQuery.scrollSpeed.min.js" type="text/javascript"></script>
 
 		<link rel="stylesheet" type="text/css" href="slick/slick.css">
 		<script src="slick/slick.min.js" type="text/javascript"></script>

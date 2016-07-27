@@ -6,5 +6,15 @@
     "brackets-minifier.css-custom-path": "",
     "brackets-minifier.project-exclude": "",
     "brackets-minifier.js-mangle": true,
-    "brackets-minifier.js-compress": true
+    "brackets-minifier.js-compress": true,
+	    "dimitrk.exclude-indexing-filetree.excludeList": [
+        ".git(?!ignore)",
+		".gitignore",
+		"README.md",
+		".brackets.json",
+        "dist",
+        "bower_components",
+        "node_modules"
+    ]
+	
 }

@@ -12,9 +12,9 @@ setInterval(function () {
 
 $(document).ready(function () {
 	"use strict";
+	jQuery.scrollSpeed(80, 2000);
 	scrollTo(0, 0);
 	$('#main_sub > li > a')[0].className = 'main_menu_active';
-	//	$("body").smoothWheel();
 	$('.sub_text2').slick();
 });
 
