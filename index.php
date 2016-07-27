@@ -1,10 +1,11 @@
-<html>
+<!DOCTYPE html system>
+<html lang="ru">
 
 <?php include ("inc/header.php"); ?>
 	<?php include ("inc/menu.php"); ?>
 
 		<body id="body">
-			<main id="home_block">
+			<div id="home_block">
 				<div class="home_main" id="home_main_1">
 					<div class="home_main" id="home_main_2"></div>
 				</div>
@@ -17,45 +18,45 @@
 						</span>
 					</div>
 				</div>
-			</main>
-			<sub_1 class="sub_block1 blck_set blck1" id="bl1">
+			</div>
+			<div class="sub_block1 blck_set blck1" id="bl1">
 				<div class="sub_text1 sub_set">
-					<img src="/images/photo.png" alt="" class="photo_img">
-					<b style="display: block;">BlackRockSoul</b>
-					<hr> Зовут меня Александр, мне что-то около 18 лет. В свободное время пишу различные странные вещи по типу этого сайта. Просто для души. Знание языков так себе, но с обучением проблем нет. Главное чтобы скучно не было. А вообще стараюсь что-то делать на <b>c#</b>, <b>Delphi</b>, <b>html</b>, <b>php</b>, <b>js</b> и других. Всего по немногу.
+					<img src="/images/photo.png" alt="BlackRockSoul" class="photo_img">
+					<h1 style="display: block; font-size: 27px">BlackRockSoul</h1>
+					<hr>
+					<h2 style="font-size: 25px; font-weight: normal">  Зовут меня Александр, мне что-то около 18 лет. В свободное время пишу различные странные вещи по типу этого сайта. Просто для души. Знание языков так себе, но с обучением проблем нет. Главное чтобы скучно не было. А вообще стараюсь что-то делать на <strong>c#</strong>, <strong>Delphi</strong>, <strong>html</strong>, <strong>php</strong>, <strong>js</strong> и других. Всего по немногу.</h2>
 					<hr>
 				</div>
-			</sub_1>
-			<sub_2 class="sub_block1 blck_set blck2" id="bl2">
-				<div class="sub_text2_1 sub_set"><b>Проекты</b></div>
+			</div>
+			<div class="sub_block1 blck_set blck2" id="bl2">
+				<div class="sub_text2_1 sub_set"><h1 style="font-size: 27px">Проекты</h1></div>
 				<div class="sub_text2 sub_set">
-					<div>Content 1</div>
-					<div>Content 2</div>
-					<div>Content 3</div>
+					<div><h2 style="font-size: 25px; font-weight: normal">Content 1</h2></div>
+					<div><h2 style="font-size: 25px; font-weight: normal">Content 2</h2></div>
+					<div><h2 style="font-size: 25px; font-weight: normal">Content 3</h2></div>
 				</div>
-			</sub_2>
-			<sub_3 class="sub_block1 blck_set blck3" id="bl3">
+			</div>
+			<div class="sub_block1 blck_set blck3" id="bl3">
 				<div class="sub_text3 sub_set">
-					<img src="/images/photo_team.png" alt="" class="photo_img">
-					<b style="display: block;">Команда</b>
-					<hr> Лучший и единственный мой помощник - Никита. Почти все проекты начинаем или заканчиваем мы в итоге вместе. И даже если изначально это был сольный проект, то это меняется очень быстро. Особо много писать не буду, Вы и сами можете почитать о нем на его сайте - <a href="http://defdev.ru/" target="_blank" style="text-decoration: underline; color: white;">defdev.ru</a>
+					<img src="/images/photo_team.png" alt="Defend" class="photo_img">
+					<h1 style="display: block; font-size: 27px">Команда</h1>
+					<hr>
+					<h2 style="font-size: 25px; font-weight: normal">  Лучший и единственный мой помощник - Никита. Почти все проекты начинаем или заканчиваем мы в итоге вместе. И даже если изначально это был сольный проект, то это меняется очень быстро. Особо много писать не буду, Вы и сами можете почитать о нем на его сайте - <a href="http://defdev.ru/" target="_blank" style="text-decoration: underline; color: white;">defdev.ru</a></h2>
 					<hr>
 				</div>
-			</sub_3>
-			<sub_4 class="sub_block1 blck_set blck4" id="bl4">
+			</div>
+			<div class="sub_block1 blck_set blck4" id="bl4">
 				<div class="sub_text4 sub_set">
 					Обратная связь тут будет
 					<br> Хорошая идея?
 				</div>
-			</sub_4>
-			<sub_5 class="sub_block1 blck_set blck5" id="bl5">
+			</div>
+			<div class="sub_block1 blck_set blck5" id="bl5">
 				<div class="sub_text5 sub_set">
 					Нижнее меню
 					<br> Многовато места наверное оставил... Но, думаю сойдет.
 				</div>
-			</sub_5>
+			</div>
 		</body>
-
-		<?php include ("inc/footer.php"); ?>
 
 </html>

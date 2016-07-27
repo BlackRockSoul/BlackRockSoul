@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<head id="head">
+<head>
 	<?php
 
 	function debug( $data ) {
@@ -41,27 +40,35 @@
 	header("Expires: " . gmdate("D, d M Y H:i:s", time() + 60*60*24) . " GMT");
 	?>
 
+		<meta charset="utf-8">
+
 		<title>BlackRockSoul</title>
-		<meta http-equiv="Cache-Control" content="max-age=604800, must-revalidate" />
-		<meta http-equiv="Content-language" content="ru-RU">
+
 		<meta name="theme-color" content="black">
 		<meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1">
 		<meta name="Description" content="Сайт одного быдлокодера с ником BlackRockSoul">
 		<meta name="Keywords" content="сайт, визитка, github, BlackRockSoul, кодер, программирование">
+		<meta name="application-name" content="BlackRockSoul" />
+		<meta name="msapplication-square70x70logo" content="/images/win_titles/small.jpg" />
+		<meta name="msapplication-square150x150logo" content="/images/win_titles/medium.jpg" />
+		<meta name="msapplication-wide310x150logo" content="/images/win_titles/wide.jpg" />
+		<meta name="msapplication-square310x310logo" content="/images/win_titles/large.jpg" />
+		<meta name="msapplication-TileColor" content="#000000" />
 
-<!--		<link href="/css/style.min.css" rel="stylesheet" type="text/css">-->
-				<link href="/css/style.css" rel="stylesheet" type="text/css">
-		<link href="images/favicon.ico" rel="icon" type="image/x-icon" />
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<link href="/css/style.min.css" rel="stylesheet" type="text/css">
+		<!--	<link href="/css/style.css" rel="stylesheet" type="text/css">-->
+		<link href="images/favicon.ico" rel="icon" type="image/x-icon">
+		<link rel="stylesheet" href="fonts/mdfi_communication.css">
+		<link rel="stylesheet" href="fonts/css/font-awesome.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" type="text/javascript"></script>
 
-		<script src="/js/noframework.waypoints.min.js"></script>
-		<script src="/js/jquery.smoothwheel.min.js"></script>
+		<script src="/js/noframework.waypoints.min.js" type="text/javascript"></script>
+		<script src="/js/jquery.smoothwheel.min.js" type="text/javascript"></script>
 
-		<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-		<script type="text/javascript" src="slick/slick.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="slick/slick.css">
+		<script src="slick/slick.min.js" type="text/javascript"></script>
 
-<!--		<script src="/js/main.min.js" async></script>-->
-				<script src="/js/main.js" async></script>
-		<meta charset="utf-8">
+		<script src="/js/main.min.js" type="text/javascript"></script>
+		<!--	<script src="/js/main.js" type="text/javascript"></script>-->
 
 </head>

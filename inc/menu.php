@@ -1,4 +1,4 @@
-<menu id="menu">
+<div id="header">
 	<div id="main_header">
 		<div id="utilitybar">
 			<a href="/" class ="header_btn">BlackRockSoul</a>
@@ -24,4 +24,4 @@
 			</ul>
 		</nav>
 	</div>
-</menu>
+</div>
