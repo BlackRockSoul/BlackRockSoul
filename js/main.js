@@ -14,16 +14,24 @@ $(document).ready(function () {
 	"use strict";
 	scrollTo(0, 0);
 	$('#main_sub > li > a')[0].className = 'main_menu_active';
-	$("body").smoothWheel();
+	//	$("body").smoothWheel();
 	$('.sub_text2').slick();
 });
 
 var pos = [],
 	ost_blck = [];
 
-var fixed_block = function (i, hgth_px, hght_vh_min, item, style_fixed, style_unlock, fixed) {
+var fixed_block = function (i, hgth_px, hght_vh_min, item, fixed) {
 	"use strict";
-	var fixblock_pos = [];
+	var fixblock_pos = [],
+		style_fixed = { //определяем стиль блокировки элемента
+			position: "fixed",
+			top: hght_vh_min[i] + 'vh'
+		},
+		style_unlock = { //тоже самое для удаления стилей с элемента
+			position: "",
+			top: ""
+		};
 
 	if (fixed[i] === 'unlocked') {
 		fixblock_pos[i] = hgth_px[i] - window.innerHeight / 100 * hght_vh_min[i]; //из пиксельной высоты элемента вычитаем высоту экрана умноженную на остаток высоты блока до верха, к примеру блок высотой 90% высоты экрана, от него остается 10%. как раз они и вычитаются. забыл уже для чего, по другому не работает
@@ -67,11 +75,24 @@ $(function () {
 		hght_vh = [], //высота в процентах. просто числом, на которое нужно что-то умножить
 		hgth_px = [], //высота, только в пикселях
 		hght_vh_min = [], //оставшаяся от блока высота в процентах
-		shoved = [],
-		fixed = [];
+		fixed = [],
+		zu = 0,
+		i;
 
-	for (i = 0; i == arr.length; i++) { //для всех полученных элементов единожды запускаем, которая...
-		var item = arr[i];
+	for (i = 0; i < arr.length; i += 1) { //для всех полученных элементов единожды запускаем, которая...
+		var item = arr[i],
+			waypoint_text = new Waypoint({
+				element: document.getElementById($(item).attr("id")),
+				handler: function (direction) {
+					$(arr[zu]).children().animate({
+						opacity: 1,
+						left: '50%',
+						top: '50%'
+					}, 1500);
+					zu += 1;
+				},
+				offset: '75%'
+			});
 		hgth_px[i] = Math.round($(item).position().top); //берет позицию элемента  по высоте в пикселях и...
 		top_vh[i] = Math.round($(item).position().top / window.innerHeight * 100); //получаем само положение элемента по высоте, но уже в vh (процентах)
 		hght_vh[i] = Math.round($(item).height() / window.innerHeight * 100); //так же и с высотой элемента
@@ -82,49 +103,29 @@ $(function () {
 
 		fixed[i] = 'unlocked';
 
-		shoved[i] = false;
-
-
-		var style_fixed = { //определяем стиль блокировки элемента
-				position: "fixed",
-				top: hght_vh_min[i] + 'vh'
-			},
-			style_unlock = { //тоже самое для удаления стилей с элемента
-				position: "",
-				top: ""
-			},
-			waypoint_text = new Waypoint({
-				element: document.getElementById($(item).attr("id")),
-				handler: function (direction) {
-					$(item).children().animate({
-						opacity: 1,
-						left: '50%',
-						top: '50%'
-					}, 1500);
-				},
-				offset: '75%'
-			});
 	}
-    $(window).resize(function () { //и при изменении размера окна (ебучий ведроид)	
-        for (i = 0; i == arr.length; i++) {
-        hgth_px[i] = window.innerHeight / 100 * top_vh[i]; //пишем отдельную переменную под высоту элемента. пока ебался с остальным забыл зачем нужна, но без неё не работает.		в общем, не трогать
-        fixblock_pos[i] = hgth_px[i] - window.innerHeight / 100 * hght_vh_min[i];
-        window.ost_blck[i] = fixblock_pos[i];
-        fixed_block(i, hgth_px, hght_vh_min, item, style_fixed, style_unlock, fixed); //вызов функции при изменении размера окна. нужно для того чтобы всё к хуям не сломалось при ресайзе
-        }
-    });
-    function remClass () 
-    {
-        $('#main_sub > li > a').each(
-                function () 
-                    {
-						$(this).removeClass();
-					});
-    };
+	$(window).resize(function () { //и при изменении размера окна (ебучий ведроид)
+		for (i = 0; i < arr.length; i += 1) {
+			var item = arr[i];
+			hgth_px[i] = window.innerHeight / 100 * top_vh[i]; //пишем отдельную переменную под высоту элемента. пока ебался с остальным забыл зачем нужна, но без неё не работает.		в общем, не трогать
+			fixblock_pos[i] = hgth_px[i] - window.innerHeight / 100 * hght_vh_min[i];
+			window.ost_blck[i] = fixblock_pos[i];
+			fixed_block(i, hgth_px, hght_vh_min, item, fixed); //вызов функции при изменении размера окна. нужно для того чтобы всё к хуям не сломалось при ресайзе
+		}
+	});
+
+	function remClass() {
+		$('#main_sub > li > a').each(
+			function () {
+				$(this).removeClass();
+			}
+		);
+	}
 
 	$(window).scroll(function () { //при прокрутке страницы
-			for (i = 0; i == arr.length; i++) {
-                item = arr[i];
+		var item = [];
+		for (i = 0; i < arr.length; i += 1) {
+			item = arr[i];
 
 			if ($(window).scrollTop() >= window.ost_blck[i] - 30) {
 				if (i !== 4) {
@@ -139,19 +140,9 @@ $(function () {
 					$('#main_sub > li > a')[0].className = 'main_menu_active';
 				}
 			}
+			fixed_block(i, hgth_px, hght_vh_min, item, fixed); //основной вызов функции, но уже при прокрутке.
+		}
 
-			var style_fixed = { //определяем стиль блокировки элемента
-					position: "fixed",
-					top: hght_vh_min[i] + 'vh'
-				},
-				style_unlock = { //тоже самое для удаления стилей с элемента
-					position: "",
-					top: ""
-				};
-
-			fixed_block(i, hgth_px, hght_vh_min, item, style_fixed, style_unlock, fixed); //основной вызов функции, но уже при прокрутке.
-            }
-		
 	});
 });
 

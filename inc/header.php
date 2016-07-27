@@ -55,11 +55,11 @@
 		<meta name="msapplication-square310x310logo" content="/images/win_titles/large.jpg" />
 		<meta name="msapplication-TileColor" content="#000000" />
 
+		<link href="https://fonts.googleapis.com/css?family=Gruppo|Libre+Baskerville|Open+Sans|Roboto" rel="stylesheet">
+		<link rel="stylesheet" href="fonts/css/font-awesome.min.css">
 		<link href="/css/style.min.css" rel="stylesheet" type="text/css">
 		<!--	<link href="/css/style.css" rel="stylesheet" type="text/css">-->
 		<link href="images/favicon.ico" rel="icon" type="image/x-icon">
-		<link rel="stylesheet" href="fonts/mdfi_communication.css">
-		<link rel="stylesheet" href="fonts/css/font-awesome.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" type="text/javascript"></script>
 
 		<script src="/js/noframework.waypoints.min.js" type="text/javascript"></script>

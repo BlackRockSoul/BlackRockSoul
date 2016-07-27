@@ -1,16 +1,16 @@
 <div id="header">
 	<div id="main_header">
 		<div id="utilitybar">
-			<a href="/" class ="header_btn">BlackRockSoul</a>
-			<div class="cont_ico mdfi_communication_phone"></div>
+			<a href="/" class="header_btn">BlackRockSoul</a>
+			<div class="icons phone_ico fa fa-mobile"></div>
 			<div class="contacts rvs" id="cont_phone">
 				88765659997+
 			</div>
-			<div class="cont_ico mdfi_communication_email"></div>
+			<div class="icons mail_ico fa fa-envelope"></div>
 			<div class="contacts rvs" id="cont_email">
 				ur.liam@bke-kenas
 			</div>
-			<a class="soc_ico fa fa-vk" target="_blank" href="http://vk.com/blackrocksoul"></a>
+			<a class="icons soc_ico fa fa-vk" target="_blank" href="http://vk.com/blackrocksoul"></a>
 		</div>
 	</div>
 	<div id="main_menu">
