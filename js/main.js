@@ -70,8 +70,9 @@ $(function () {
 		shoved = [],
 		fixed = [];
 
-	arr.forEach(function (item, i, arr) { //для всех полученных элементов единожды запускаем, которая...
-		hgth_px[i] = $(arr[i]).position().top; //берет позицию элемента  по высоте в пикселях и...
+	for (i = 0; i == arr.length; i++) { //для всех полученных элементов единожды запускаем, которая...
+		var item = arr[i];
+		hgth_px[i] = Math.round($(item).position().top); //берет позицию элемента  по высоте в пикселях и...
 		top_vh[i] = Math.round($(item).position().top / window.innerHeight * 100); //получаем само положение элемента по высоте, но уже в vh (процентах)
 		hght_vh[i] = Math.round($(item).height() / window.innerHeight * 100); //так же и с высотой элемента
 		hght_vh_min[i] = 100 - hght_vh[i]; //из 100% высоты экрана вычитаем место, которое способен занять элемент и получаем остаток от блока. нужен для фиксирования позиции элемента
@@ -103,33 +104,38 @@ $(function () {
 				},
 				offset: '75%'
 			});
-
-
-		$(window).resize(function () { //и при изменении размера окна (ебучий ведроид)
-			hgth_px[i] = window.innerHeight / 100 * top_vh[i]; //пишем отдельную переменную под высоту элемента. пока ебался с остальным забыл зачем нужна, но без неё не работает.		в общем, не трогать
-			fixblock_pos[i] = hgth_px[i] - window.innerHeight / 100 * hght_vh_min[i];
-			window.ost_blck[i] = fixblock_pos[i];
-			fixed_block(i, hgth_px, hght_vh_min, item, style_fixed, style_unlock, fixed); //вызов функции при изменении размера окна. нужно для того чтобы всё к хуям не сломалось при ресайзе
-		});
-	});
+	}
+    $(window).resize(function () { //и при изменении размера окна (ебучий ведроид)	
+        for (i = 0; i == arr.length; i++) {
+        hgth_px[i] = window.innerHeight / 100 * top_vh[i]; //пишем отдельную переменную под высоту элемента. пока ебался с остальным забыл зачем нужна, но без неё не работает.		в общем, не трогать
+        fixblock_pos[i] = hgth_px[i] - window.innerHeight / 100 * hght_vh_min[i];
+        window.ost_blck[i] = fixblock_pos[i];
+        fixed_block(i, hgth_px, hght_vh_min, item, style_fixed, style_unlock, fixed); //вызов функции при изменении размера окна. нужно для того чтобы всё к хуям не сломалось при ресайзе
+        }
+    });
+    function remClass () 
+    {
+        $('#main_sub > li > a').each(
+                function () 
+                    {
+						$(this).removeClass();
+					});
+    };
 
 	$(window).scroll(function () { //при прокрутке страницы
-		arr.forEach(function (item, i, arr) {
+			for (i = 0; i == arr.length; i++) {
+                item = arr[i];
 
 			if ($(window).scrollTop() >= window.ost_blck[i] - 30) {
 				if (i !== 4) {
-					$('#main_sub > li > a').each(function () {
-						$(this).removeClass();
-					});
+					remClass();
 					try {
 						$('#main_sub > li > a')[i + 1].className = 'main_menu_active';
 					} catch (errrr) {}
 				}
 			} else {
 				if ($(window).scrollTop() < window.ost_blck[0] - 30) {
-					$('#main_sub > li > a').each(function () {
-						$(this).removeClass();
-					});
+					remClass();
 					$('#main_sub > li > a')[0].className = 'main_menu_active';
 				}
 			}
@@ -144,7 +150,8 @@ $(function () {
 				};
 
 			fixed_block(i, hgth_px, hght_vh_min, item, style_fixed, style_unlock, fixed); //основной вызов функции, но уже при прокрутке.
-		});
+            }
+		
 	});
 });
 
