@@ -1,0 +1,17 @@
+Устанавливай через поиск по названиям
+
+Моя тема  -  One Gray - https://github.com/catdad/brackets-theme-one-gray#readme
+Сам добавляет -webkit-; -moz- и другие теги в ксс при сохранении файла  -  Autoprefixer  - https://github.com/mikaeljorhult/brackets-autoprefixer
+Правит оформление и оступы автоматом при сохранении - Beautify - https://github.com/brackets-beautify/brackets-beautify
+Integration of Git into Brackets тут всё понятно - Brackets Git - https://github.com/zaggino/brackets-git
+Иконки для файлов. Просто удобнее с цветом работать. Мастхэв - Brackets Icons - https://github.com/ivogabe/Brackets-Icons
+Позволяет скрывать блоками - Custom Region Code Folding - https://github.com/thehogfather/brackets-custom-region-code-folding
+Что-то делает. Пара функций удобные, многими не пользуюсь - Emmet - http://emmet.io/
+Рейтинг плагинов. Мастхэв - Extensions Rating - https://github.com/dnbard/brackets-extension-rating
+Очевидно из названия. Лучшая минимизация - JS CSS Minifier - https://github.com/abagshaw/brackets-minifier
+Хуй знает что - Paste and Indent - https://github.com/ahuth/brackets-paste-and-indent
+Даблклик поиск по файлу как в n++. Мастхэв - Quick Search - https://github.com/enturn/brackets-quick-search
+Quickly insert JS and jQuery Snippets. Не уверен что нужно, не пользуюсь - quickJS - https://github.com/html5andblog/quickjs-brackets-extension
+Кнопки копировать вставить на пкм. Изначально из нет. - Right Click Extended - https://github.com/jbardnz/RightClickExtended
+FTP загружалка - SFtpUpload - https://github.com/bigeyex/brackets-sftp-upload
+Todo лист. Пока не юзал - Todo - https://github.com/mikaeljorhult/brackets-todo
