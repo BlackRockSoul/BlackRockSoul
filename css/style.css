@@ -568,9 +568,7 @@ h2 {
 		font-size: 23px;
 	}
 	.contacts,
-	.social,
-	.cont_ico,
-	.soc_ico {
+	.icons {
 		display: none !important;
 	}
 }
